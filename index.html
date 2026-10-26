@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konveksi SMK Negeri 1 Idi — Pemesanan Seragam Sekolah & Baju Olahraga</title>
+    <meta name="description" content="Sistem informasi dan pemesanan seragam sekolah, baju olahraga, dan wearpack praktik resmi Konveksi SMK Negeri 1 Idi.">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#1e1b4b',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 4px 10px -2px rgba(0, 0, 0, 0.02)',
+                        'soft-lg': '0 20px 40px -10px rgba(0, 0, 0, 0.06), 0 8px 16px -4px rgba(0, 0, 0, 0.03)',
+                        'soft-xl': '0 30px 60px -15px rgba(0, 0, 0, 0.08), 0 12px 24px -6px rgba(0, 0, 0, 0.04)',
+                        'glow-indigo': '0 0 35px -5px rgba(79, 70, 229, 0.35)',
+                        'glow-amber': '0 0 30px -5px rgba(245, 158, 11, 0.35)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .glass-card-dark {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-modal {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Subtle Animation */
+        @keyframes pulse-subtle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+        }
+        .animate-subtle-glow {
+            animation: pulse-subtle 8s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50/80 text-slate-800 antialiased selection:bg-indigo-600 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <!-- Ambient Background Gradients -->
+    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+        <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-indigo-200/40 via-purple-100/20 to-transparent blur-3xl opacity-70 animate-subtle-glow"></div>
+        <div class="absolute top-[800px] -left-48 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute top-[1400px] -right-48 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-3xl opacity-50"></div>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-200/70 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand / Logo -->
+                <a href="#" class="flex items-center gap-3.5 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-700 via-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/25 group-hover:scale-105 group-hover:shadow-indigo-500/40 transition-all duration-300">
+                        <i class="fa-solid fa-scissors text-lg"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-extrabold text-slate-900 text-lg tracking-tight group-hover:text-indigo-600 transition-colors">Konveksi SMKN 1 Idi</span>
+                            <span class="bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-indigo-200/80 shadow-xs">Resmi</span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-medium hidden sm:block">Unit Produksi & Jasa Tata Busana SMKN 1 Idi</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-1 text-sm font-semibold text-slate-600">
+                    <a href="#katalog" class="px-3.5 py-2 rounded-xl hover:bg-slate-100/70 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-shirt text-slate-400 group-hover:text-indigo-500"></i>
+                        <span>Katalog Produk</span>
+                    </a>
+                    <a href="#panduan-ukuran" class="px-3.5 py-2 rounded-xl hover:bg-slate-100/70 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-ruler-combined text-slate-400"></i>
+                        <span>Panduan Ukuran</span>
+                    </a>
+                    <a href="#pesan" class="px-3.5 py-2 rounded-xl hover:bg-slate-100/70 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-cart-shopping text-slate-400"></i>
+                        <span>Form Pemesanan</span>
+                    </a>
+                    <a href="#cek-status" class="px-3.5 py-2 rounded-xl hover:bg-slate-100/70 hover:text-indigo-600 transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                        <span>Cek Status</span>
+                    </a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-2.5">
+                    <button onclick="bukaModalAdmin()" class="inline-flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100/80 hover:bg-slate-200/70 active:bg-slate-300/60 px-3.5 py-2.5 rounded-xl border border-slate-200/90 shadow-xs transition-all duration-200 group">
+                        <i class="fa-solid fa-lock text-slate-400 group-hover:text-indigo-600 transition-colors"></i>
+                        <span>Admin</span>
+                    </button>
+                    <a href="#pesan" class="inline-flex items-center gap-2 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 px-4.5 py-2.5 rounded-xl shadow-md shadow-indigo-600/25 hover:shadow-lg hover:shadow-indigo-600/35 transition-all duration-200 hover:-translate-y-0.5">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Pesan Sekarang</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 text-white overflow-hidden py-18 sm:py-24">
+        <!-- Ambient Background Lights & Grid -->
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+        <div class="absolute -top-32 -right-32 w-[550px] h-[550px] bg-indigo-600/25 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute -bottom-32 -left-32 w-[450px] h-[450px] bg-violet-600/20 rounded-full blur-[90px] pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 space-y-7">
+                    <div class="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-md text-indigo-200 text-xs font-semibold px-4 py-1.5 rounded-full shadow-inner transition-colors duration-200">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse"></span>
+                        Layanan Pemesanan Seragam Sekolah & Praktik Online
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                        Pesan Seragam Sekolah <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400">
+                            Standar Industri & Rapi
+                        </span>
+                    </h1>
+
+                    <p class="text-indigo-100/90 text-base sm:text-lg max-w-xl leading-relaxed font-normal">
+                        Dikerjakan langsung oleh unit produksi busana Konveksi SMK Negeri 1 Idi. Jahitan rapi, bahan premium berkualitas, ukuran presisi, dan dapat dilacak prosesnya secara real-time.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="pt-2 flex flex-wrap gap-3.5">
+                        <a href="#pesan" class="inline-flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 active:bg-amber-500 text-slate-950 font-bold px-6 py-3.5 rounded-2xl shadow-lg shadow-amber-400/25 hover:shadow-xl hover:shadow-amber-400/40 transition-all duration-200 transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-cart-plus text-sm"></i>
+                            <span>Mulai Buat Pesanan</span>
+                        </a>
+                        <a href="#cek-status" class="inline-flex items-center gap-2.5 bg-white/10 hover:bg-white/20 active:bg-white/25 text-white font-semibold px-6 py-3.5 rounded-2xl border border-white/20 hover:border-white/40 backdrop-blur-xl transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm">
+                            <i class="fa-solid fa-magnifying-glass text-sm text-indigo-200"></i>
+                            <span>Lacak Status Pesanan</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats Badge -->
+                    <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-6 max-w-lg">
+                        <div class="space-y-0.5">
+                            <p class="text-2xl sm:text-3xl font-black text-amber-300">100%</p>
+                            <p class="text-xs text-indigo-200/80 font-medium">Standar Dinas & Sekolah</p>
+                        </div>
+                        <div class="space-y-0.5">
+                            <p class="text-2xl sm:text-3xl font-black text-amber-300">5+</p>
+                            <p class="text-xs text-indigo-200/80 font-medium">Varian Seragam Lengkap</p>
+                        </div>
+                        <div class="space-y-0.5">
+                            <p class="text-2xl sm:text-3xl font-black text-amber-300">Online</p>
+                            <p class="text-xs text-indigo-200/80 font-medium">Pelacakan Status Jahit</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Card: 4-Step Process with Glassmorphism -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card-dark p-7 sm:p-8 rounded-3xl shadow-2xl relative overflow-hidden border border-white/15">
+                        <div class="absolute -top-20 -right-20 w-44 h-44 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                        <div class="flex items-center justify-between pb-5 border-b border-white/10 mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-amber-400/20 border border-amber-300/30 flex items-center justify-center text-amber-300">
+                                    <i class="fa-solid fa-layer-group text-sm"></i>
+                                </div>
+                                <h2 class="font-bold text-white text-base tracking-tight">Alur Pemesanan Online</h2>
+                            </div>
+                            <span class="text-[11px] font-semibold bg-white/10 text-indigo-200 px-2.5 py-1 rounded-full border border-white/15">4 Langkah Praktis</span>
+                        </div>
+
+                        <ol class="space-y-5 text-xs sm:text-sm text-indigo-100/90">
+                            <li class="flex items-start gap-3.5 group">
+                                <span class="w-7 h-7 rounded-xl bg-amber-400 text-slate-950 font-extrabold flex items-center justify-center shrink-0 text-xs shadow-md shadow-amber-400/20 group-hover:scale-105 transition-transform">1</span>
+                                <div class="space-y-0.5">
+                                    <strong class="text-white block font-bold text-sm">Pilih Seragam di Katalog</strong>
+                                    <p class="text-xs text-indigo-200/80 leading-relaxed">Tentukan jenis seragam, ukuran tubuh (S/M/L/XL/XXL), dan jumlah pcs.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3.5 group">
+                                <span class="w-7 h-7 rounded-xl bg-amber-400 text-slate-950 font-extrabold flex items-center justify-center shrink-0 text-xs shadow-md shadow-amber-400/20 group-hover:scale-105 transition-transform">2</span>
+                                <div class="space-y-0.5">
+                                    <strong class="text-white block font-bold text-sm">Isi Formulir Pemesanan</strong>
+                                    <p class="text-xs text-indigo-200/80 leading-relaxed">Lengkapi nama siswa, kelas/jurusan, dan nomor WhatsApp aktif.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3.5 group">
+                                <span class="w-7 h-7 rounded-xl bg-amber-400 text-slate-950 font-extrabold flex items-center justify-center shrink-0 text-xs shadow-md shadow-amber-400/20 group-hover:scale-105 transition-transform">3</span>
+                                <div class="space-y-0.5">
+                                    <strong class="text-white block font-bold text-sm">Dapatkan Kode Faktur</strong>
+                                    <p class="text-xs text-indigo-200/80 leading-relaxed">Simpan kode invoice pesanan (<code class="text-amber-300 font-mono text-[11px]">INV-...</code>) untuk bukti & pelacakan.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3.5 group">
+                                <span class="w-7 h-7 rounded-xl bg-amber-400 text-slate-950 font-extrabold flex items-center justify-center shrink-0 text-xs shadow-md shadow-amber-400/20 group-hover:scale-105 transition-transform">4</span>
+                                <div class="space-y-0.5">
+                                    <strong class="text-white block font-bold text-sm">Pantau Progres & Ambil Seragam</strong>
+                                    <p class="text-xs text-indigo-200/80 leading-relaxed">Pantau status pengerjaan hingga selesai dan siap diambil di konveksi.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24 flex-1">
+
+        <!-- ================= KATALOG PRODUK ================= -->
+        <section id="katalog" class="space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 border-b border-slate-200/80 pb-6">
+                <div>
+                    <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase bg-indigo-50/80 px-3.5 py-1.5 rounded-full border border-indigo-200/70 shadow-xs">
+                        Koleksi & Pilihan Produk
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2.5 tracking-tight">Katalog Seragam Sekolah & Olahraga</h2>
+                    <p class="text-sm text-slate-500 mt-1">Diproduksi secara presisi dengan material terpilih berstandar resmi sekolah.</p>
+                </div>
+
+                <!-- Filter Kategori Buttons -->
+                <div class="flex flex-wrap gap-2 text-xs font-bold" id="filter-buttons">
+                    <button onclick="filterKategori('semua')" class="cat-btn active bg-indigo-600 hover:bg-indigo-700 text-white px-4.5 py-2.5 rounded-xl transition-all duration-200 shadow-md shadow-indigo-600/20">Semua</button>
+                    <button onclick="filterKategori('Seragam Sekolah')" class="cat-btn bg-slate-100/80 hover:bg-slate-200/80 active:bg-slate-300 text-slate-700 px-4.5 py-2.5 rounded-xl border border-slate-200/80 transition-all duration-200">Seragam Sekolah</button>
+                    <button onclick="filterKategori('Baju Olahraga')" class="cat-btn bg-slate-100/80 hover:bg-slate-200/80 active:bg-slate-300 text-slate-700 px-4.5 py-2.5 rounded-xl border border-slate-200/80 transition-all duration-200">Baju Olahraga</button>
+                    <button onclick="filterKategori('Wearpack Praktik')" class="cat-btn bg-slate-100/80 hover:bg-slate-200/80 active:bg-slate-300 text-slate-700 px-4.5 py-2.5 rounded-xl border border-slate-200/80 transition-all duration-200">Wearpack Praktik</button>
+                </div>
+            </div>
+
+            <!-- Grid Produk -->
+            <div id="grid-produk" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7">
+                <!-- Produk di-render dinamis melalui JS -->
+            </div>
+        </section>
+
+        <!-- ================= PANDUAN UKURAN ================= -->
+        <section id="panduan-ukuran" class="bg-white/80 backdrop-blur-md rounded-3xl border border-slate-200/80 p-7 sm:p-9 shadow-soft transition-all">
+            <div class="max-w-3xl mb-7">
+                <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase bg-indigo-50/80 px-3.5 py-1.5 rounded-full border border-indigo-200/70 shadow-xs">
+                    Standar Ukuran
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2.5 tracking-tight">Tabel Ukuran Seragam Konveksi (cm)</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1.5">Gunakan meteran kain pada lingkar dada dan panjang pakaian untuk memastikan pesanan seragam pas dan nyaman.</p>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-slate-200/80 shadow-xs">
+                <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100/90 text-slate-700 font-bold border-b border-slate-200">
+                            <th class="py-3.5 px-5">Ukuran</th>
+                            <th class="py-3.5 px-5">Lebar Dada</th>
+                            <th class="py-3.5 px-5">Panjang Baju</th>
+                            <th class="py-3.5 px-5">Panjang Celana/Rok</th>
+                            <th class="py-3.5 px-5">Rekomendasi Tinggi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-600 bg-white">
+                        <tr class="hover:bg-slate-50/80 transition-colors">
+                            <td class="py-3.5 px-5 font-bold text-indigo-600">S (Small)</td>
+                            <td class="py-3.5 px-5">48 cm</td>
+                            <td class="py-3.5 px-5">64 cm</td>
+                            <td class="py-3.5 px-5">90 cm</td>
+                            <td class="py-3.5 px-5">150 - 160 cm</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80 transition-colors">
+                            <td class="py-3.5 px-5 font-bold text-indigo-600">M (Medium)</td>
+                            <td class="py-3.5 px-5">50 cm</td>
+                            <td class="py-3.5 px-5">67 cm</td>
+                            <td class="py-3.5 px-5">93 cm</td>
+                            <td class="py-3.5 px-5">160 - 168 cm</td>
+                        </tr>
+                        <tr class="hover:bg-indigo-50/50 bg-indigo-50/30 transition-colors">
+                            <td class="py-3.5 px-5 font-bold text-indigo-600 flex items-center gap-2">
+                                <span>L (Large)</span>
+                                <span class="text-[10px] bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded-full border border-indigo-200/60">Paling Populer</span>
+                            </td>
+                            <td class="py-3.5 px-5 font-semibold text-slate-800">53 cm</td>
+                            <td class="py-3.5 px-5 font-semibold text-slate-800">70 cm</td>
+                            <td class="py-3.5 px-5 font-semibold text-slate-800">96 cm</td>
+                            <td class="py-3.5 px-5 font-semibold text-slate-800">168 - 175 cm</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80 transition-colors">
+                            <td class="py-3.5 px-5 font-bold text-indigo-600">XL (Extra Large)</td>
+                            <td class="py-3.5 px-5">56 cm</td>
+                            <td class="py-3.5 px-5">73 cm</td>
+                            <td class="py-3.5 px-5">99 cm</td>
+                            <td class="py-3.5 px-5">173 - 180 cm</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/80 transition-colors">
+                            <td class="py-3.5 px-5 font-bold text-indigo-600">XXL (Double XL)</td>
+                            <td class="py-3.5 px-5">59 cm</td>
+                            <td class="py-3.5 px-5">76 cm</td>
+                            <td class="py-3.5 px-5">102 cm</td>
+                            <td class="py-3.5 px-5">&gt; 180 cm / Postur Besar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= FORM PEMESANAN & CEK STATUS ================= -->
+        <div class="grid lg:grid-cols-12 gap-10 items-start">
+            
+            <!-- FORM PEMESANAN (7 COL) -->
+            <section id="pesan" class="lg:col-span-7 bg-white/90 backdrop-blur-md rounded-3xl border border-slate-200/80 p-7 sm:p-9 shadow-soft-lg space-y-7">
+                <div class="border-b border-slate-100 pb-5">
+                    <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase bg-indigo-50/80 px-3.5 py-1.5 rounded-full border border-indigo-200/70 shadow-xs">
+                        Formulir Pemesanan
+                    </span>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mt-2.5 tracking-tight">Form Pemesanan Seragam</h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">Lengkapi data siswa dan pilih spesifikasi seragam yang dipesan.</p>
+                </div>
+
+                <form id="orderForm" onsubmit="handleOrderSubmit(event)" class="space-y-5">
+                    <!-- Nama Pemesan -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Nama Lengkap Siswa / Pemesan <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <i class="fa-solid fa-user absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+                            <input type="text" id="nama_pemesan" required placeholder="Contoh: Muhammad Rizki" class="w-full pl-11 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200">
+                        </div>
+                    </div>
+
+                    <!-- NIS & Kelas / Jurusan & No HP -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2">Kelas & Jurusan <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <i class="fa-solid fa-graduation-cap absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+                                <input type="text" id="nis_kelas" required placeholder="Contoh: X TKJ 1 / XI Busana" class="w-full pl-11 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2">Nomor WhatsApp / HP <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <i class="fa-brands fa-whatsapp absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+                                <input type="tel" id="no_hp" required placeholder="Contoh: 081234567890" class="w-full pl-11 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pilih Produk -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Pilih Produk Seragam <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <i class="fa-solid fa-tag absolute left-4 top-3.5 text-slate-400 text-sm pointer-events-none"></i>
+                            <select id="select_produk" required onchange="hitungTotal()" class="w-full pl-11 pr-10 py-3 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200 cursor-pointer appearance-none">
+                                <option value="">-- Pilih Seragam atau Pakaian --</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down absolute right-4 top-4 text-slate-400 text-xs pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <!-- Ukuran & Jumlah -->
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2">Ukuran Pakaian <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <select id="select_ukuran" required class="w-full px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200 cursor-pointer appearance-none">
+                                    <option value="S">S (Lebar 48 cm)</option>
+                                    <option value="M">M (Lebar 50 cm)</option>
+                                    <option value="L" selected>L (Lebar 53 cm) - Rekomendasi</option>
+                                    <option value="XL">XL (Lebar 56 cm)</option>
+                                    <option value="XXL">XXL (Lebar 59 cm)</option>
+                                </select>
+                                <i class="fa-solid fa-chevron-down absolute right-4 top-4 text-slate-400 text-xs pointer-events-none"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2">Jumlah (Pcs) <span class="text-red-500">*</span></label>
+                            <input type="number" id="input_jumlah" min="1" max="50" value="1" required onchange="hitungTotal()" oninput="hitungTotal()" class="w-full px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200">
+                        </div>
+                    </div>
+
+                    <!-- Catatan Tambahan -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Catatan Khusus (Opsional)</label>
+                        <textarea id="input_catatan" rows="2" placeholder="Contoh: Bordir nama dada 'RIZKI', lengan panjang, atau celana ukuran khusus." class="w-full px-4 py-3 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200"></textarea>
+                    </div>
+
+                    <!-- Rincian Biaya Estimasi (Glassmorphism highlight) -->
+                    <div class="bg-gradient-to-r from-indigo-50/90 via-purple-50/60 to-indigo-50/90 border border-indigo-200/80 rounded-2xl p-5 flex items-center justify-between shadow-xs">
+                        <div class="space-y-0.5">
+                            <p class="text-xs font-bold text-indigo-950 flex items-center gap-1.5">
+                                <i class="fa-solid fa-calculator text-indigo-600"></i>
+                                <span>Total Biaya Pemesanan</span>
+                            </p>
+                            <p class="text-[11px] text-indigo-700 font-medium">Harga produk resmi x kuantitas pesanan</p>
+                        </div>
+                        <div class="text-right">
+                            <span id="label_total_biaya" class="text-2xl font-black text-indigo-700">Rp 0</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-indigo-600/30 hover:shadow-xl hover:shadow-indigo-600/40 transition-all duration-200 flex items-center justify-center gap-2.5 text-sm transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Kirim Pesanan Sekarang</span>
+                    </button>
+                </form>
+            </section>
+
+            <!-- CEK STATUS PESANAN (5 COL) -->
+            <section id="cek-status" class="lg:col-span-5 space-y-6">
+                <!-- Search Box Card -->
+                <div class="bg-white/90 backdrop-blur-md rounded-3xl border border-slate-200/80 p-7 sm:p-9 shadow-soft-lg space-y-6">
+                    <div class="border-b border-slate-100 pb-5">
+                        <span class="text-xs font-bold text-amber-600 tracking-wider uppercase bg-amber-50/80 px-3.5 py-1.5 rounded-full border border-amber-200/70 shadow-xs">
+                            Cek Progres
+                        </span>
+                        <h2 class="text-xl font-extrabold text-slate-900 mt-2.5 tracking-tight">Lacak Status Pesanan</h2>
+                        <p class="text-xs text-slate-500 mt-1">Masukkan Kode Faktur Pesanan atau Nomor WhatsApp Anda untuk melihat progres pengerjaan.</p>
+                    </div>
+
+                    <form onsubmit="handleCariPesanan(event)" class="space-y-3.5">
+                        <div class="relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-sm"></i>
+                            <input type="text" id="input_cari" required placeholder="Contoh: INV-20261024-XXXX atau 0812..." class="w-full pl-11 pr-4 py-3 rounded-2xl border border-slate-200 bg-slate-50/50 hover:bg-white focus:bg-white text-sm focus:ring-4 focus:ring-amber-500/15 focus:border-amber-500 outline-none transition-all duration-200">
+                        </div>
+                        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-slate-950 font-bold py-3 px-4 rounded-2xl shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/35 transition-all duration-200 flex items-center justify-center gap-2 text-sm transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-search"></i>
+                            <span>Cari Riwayat Pesanan</span>
+                        </button>
+                    </form>
+
+                    <!-- Hasil Pencarian Container -->
+                    <div id="hasil_pencarian_box" class="pt-2 hidden">
+                        <!-- Hasil diisi via JS -->
+                    </div>
+                </div>
+
+                <!-- Info Workshop & Kontak Card with Dark Glassmorphism -->
+                <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 text-white rounded-3xl p-7 shadow-soft-xl border border-white/10 space-y-4 relative overflow-hidden">
+                    <div class="absolute -bottom-16 -right-16 w-36 h-36 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <h3 class="font-bold text-sm text-amber-300 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <span>Informasi & Pengambilan Fisik</span>
+                    </h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Pengambilan seragam fisik dan pembayaran tunai dilakukan langsung di Workshop Konveksi (Gedung Jurusan Tata Busana) SMK Negeri 1 Idi pada hari kerja sekolah (08.00 - 15.00 WIB).
+                    </p>
+                    <div class="pt-2 border-t border-white/10 text-xs text-indigo-200 space-y-2">
+                        <p class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-location-dot w-4 text-amber-400"></i>
+                            <span>Jl. Medan - Banda Aceh, Idi Rayeuk, Aceh Timur</span>
+                        </p>
+                        <p class="flex items-center gap-2.5">
+                            <i class="fa-brands fa-whatsapp w-4 text-emerald-400"></i>
+                            <span>WhatsApp: +62 812-3456-7890</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ================= MODAL LOGIN ADMIN (GLASSMORPHISM) ================= -->
+    <div id="modalAdmin" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md hidden flex items-center justify-center p-4 transition-all duration-300">
+        <div class="glass-modal max-w-md w-full p-7 sm:p-9 rounded-3xl shadow-soft-xl relative border border-white/70 transform scale-100 transition-all duration-300">
+            <!-- Close Button with Transparent Hover -->
+            <button onclick="tutupModalAdmin()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100/80 hover:bg-slate-200/90 text-slate-400 hover:text-slate-700 flex items-center justify-center transition-all duration-200">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3.5 mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-700 to-violet-600 text-white flex items-center justify-center shadow-md shadow-indigo-600/25">
+                    <i class="fa-solid fa-user-shield text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-extrabold text-slate-900 text-xl tracking-tight">Login Administrator</h3>
+                    <p class="text-xs text-slate-500 font-medium">Akses pengelolaan pesanan & data stok</p>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Username Admin</label>
+                    <input type="text" id="admin_user" value="admin" class="w-full px-4 py-3 rounded-2xl border border-slate-200/90 bg-white/70 focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Password</label>
+                    <input type="password" id="admin_pass" value="admin9671" class="w-full px-4 py-3 rounded-2xl border border-slate-200/90 bg-white/70 focus:bg-white text-sm focus:ring-4 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none transition-all duration-200">
+                </div>
+
+                <!-- Credential Info Box -->
+                <div class="bg-indigo-50/60 p-3 rounded-2xl border border-indigo-100 text-[11px] text-slate-600 flex items-center gap-2">
+                    <i class="fa-solid fa-key text-indigo-500"></i>
+                    <span>Default: <code class="bg-indigo-100 text-indigo-800 font-bold px-1.5 py-0.5 rounded">admin</code> / <code class="bg-indigo-100 text-indigo-800 font-bold px-1.5 py-0.5 rounded">admin9671</code></span>
+                </div>
+
+                <!-- Action Button with Transparent Hover Effect -->
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold py-3.5 rounded-2xl text-sm shadow-md shadow-indigo-600/25 hover:shadow-lg hover:shadow-indigo-600/35 transition-all duration-200 transform hover:-translate-y-0.5">
+                    Masuk ke Dashboard
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL NOTIFIKASI PESANAN BERHASIL (GLASSMORPHISM) ================= -->
+    <div id="modalSukses" class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md hidden flex items-center justify-center p-4 transition-all duration-300">
+        <div class="glass-modal max-w-lg w-full p-7 sm:p-9 rounded-3xl shadow-soft-xl relative text-center border border-white/80">
+            <!-- Success Icon -->
+            <div class="w-16 h-16 rounded-2xl bg-emerald-100/90 text-emerald-600 mx-auto flex items-center justify-center text-3xl mb-4 shadow-inner">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 tracking-tight mb-1">Pesanan Berhasil Dibuat!</h3>
+            <p class="text-xs text-slate-500 mb-6 font-medium">Faktur pesanan Anda telah tersimpan di sistem. Simpan kode di bawah ini untuk pelacakan jahitan.</p>
+
+            <!-- Invoice Card (Glassmorphism Inset) -->
+            <div class="bg-gradient-to-b from-white/90 to-slate-50/90 border border-slate-200/80 rounded-2xl p-5 mb-6 text-left space-y-2.5 shadow-xs">
+                <div class="flex justify-between items-center text-xs text-slate-500 border-b border-slate-200/70 pb-3">
+                    <span class="font-medium">Kode Faktur Pesanan</span>
+                    <span id="sukses_kode" class="font-mono font-black text-indigo-700 text-sm bg-indigo-50 px-2.5 py-1 rounded-xl border border-indigo-200/80 shadow-xs">INV-...</span>
+                </div>
+                <div class="flex justify-between items-center text-xs text-slate-700 pt-1">
+                    <span class="text-slate-500">Nama Siswa:</span>
+                    <strong id="sukses_nama" class="font-bold">-</strong>
+                </div>
+                <div class="flex justify-between items-center text-xs text-slate-700">
+                    <span class="text-slate-500">Produk:</span>
+                    <strong id="sukses_produk" class="font-bold">-</strong>
+                </div>
+                <div class="flex justify-between items-center text-xs text-slate-700">
+                    <span class="text-slate-500">Ukuran & Jumlah:</span>
+                    <strong id="sukses_qty" class="font-bold">-</strong>
+                </div>
+                <div class="flex justify-between items-center text-xs text-slate-900 border-t border-slate-200/70 pt-3 font-bold">
+                    <span class="text-slate-700 font-extrabold">Total Biaya:</span>
+                    <span id="sukses_total" class="text-emerald-700 font-black text-base">Rp 0</span>
+                </div>
+            </div>
+
+            <!-- Action Buttons with Transparent Hover -->
+            <div class="flex gap-3">
+                <button onclick="salinKodePesanan()" class="flex-1 bg-slate-100/80 hover:bg-slate-200/70 active:bg-slate-300 text-slate-700 font-bold py-3 rounded-2xl text-xs transition-all duration-200 border border-slate-200/90 flex items-center justify-center gap-1.5">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>Salin Kode</span>
+                </button>
+                <button onclick="tutupModalSukses()" class="flex-1 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold py-3 rounded-2xl text-xs shadow-md shadow-indigo-600/25 hover:shadow-lg hover:shadow-indigo-600/35 transition-all duration-200">
+                    Selesai & Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL ADMIN DASHBOARD PREVIEW ================= -->
+    <div id="modalDashboard" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-lg hidden flex items-center justify-center p-4">
+        <div class="glass-modal max-w-4xl w-full p-6 sm:p-8 rounded-3xl shadow-soft-xl max-h-[90vh] overflow-y-auto border border-white/80">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-slate-900 text-lg">Panel Manajemen Pesanan</h3>
+                        <p class="text-xs text-slate-500">Kelola dan update status pengerjaan seragam siswa</p>
+                    </div>
+                </div>
+                <button onclick="tutupModalDashboard()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- List Pesanan Table -->
+            <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                            <th class="py-3 px-4">Invoice</th>
+                            <th class="py-3 px-4">Pemesan</th>
+                            <th class="py-3 px-4">Produk & Ukuran</th>
+                            <th class="py-3 px-4">Total</th>
+                            <th class="py-3 px-4">Status Saat Ini</th>
+                            <th class="py-3 px-4 text-center">Ubah Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin_orders_tbody" class="divide-y divide-slate-100 bg-white">
+                        <!-- Diisi via JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-6 flex justify-between items-center text-xs text-slate-500">
+                <p>Klik tombol status untuk memperbarui pengerjaan secara langsung.</p>
+                <button onclick="tutupModalDashboard()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold transition">
+                    Tutup Panel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TOAST NOTIFICATION ================= -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-modal border border-indigo-200/80 text-slate-800 text-xs font-bold px-5 py-3.5 rounded-2xl shadow-soft-xl hidden flex items-center gap-3 transition-all duration-300 transform translate-y-4">
+        <i class="fa-solid fa-circle-check text-indigo-600 text-base" id="toast_icon"></i>
+        <span id="toast_msg">Pesan notifikasi</span>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-indigo-600/30">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
+                <div>
+                    <p class="font-extrabold text-white text-sm tracking-tight">Konveksi SMK Negeri 1 Idi</p>
+                    <p class="text-[11px] text-slate-500">&copy; 2026 Unit Produksi Tata Busana SMKN 1 Idi. All rights reserved.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-5 text-[11px] font-semibold text-slate-400">
+                <a href="#katalog" class="hover:text-white transition-colors">Katalog</a>
+                <a href="#panduan-ukuran" class="hover:text-white transition-colors">Panduan Ukuran</a>
+                <a href="#pesan" class="hover:text-white transition-colors">Form Pemesanan</a>
+                <a href="#cek-status" class="hover:text-white transition-colors">Cek Status</a>
+                <a href="admin.php" class="text-indigo-400 hover:text-indigo-300 font-bold transition-colors">Panel PHP MySQL</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // Data Produk Default (Sesuai database SMK Negeri 1 Idi)
+        const PRODUK_DATA = [
+            {
+                id: 1,
+                kode: 'SRG-001',
+                nama: 'Seragam Putih Abu-Abu (Lengkap Bordir)',
+                kategori: 'Seragam Sekolah',
+                deskripsi: 'Bahan High Twist premium, adem, jahitan rapi kuat dan sudah lengkap badge bordir logo SMKN 1 Idi.',
+                harga: 125000,
+                stok: 85,
+                badge: 'Wajib Sekolah'
+            },
+            {
+                id: 2,
+                kode: 'SRG-002',
+                nama: 'Seragam Pramuka Penegak',
+                kategori: 'Seragam Sekolah',
+                deskripsi: 'Bahan rapilo tebal warna coklat standar nasional, halus, nyaman dipakai, dan tidak mudah kusut.',
+                harga: 135000,
+                stok: 60,
+                badge: 'Wajib Pramuka'
+            },
+            {
+                id: 3,
+                kode: 'OLR-001',
+                nama: 'Setelan Kaos & Celana Training Olahraga',
+                kategori: 'Baju Olahraga',
+                deskripsi: 'Bahan dry-fit / paragon elastis premium, sirkulasi udara optimal, desain sporty kebanggaan sekolah.',
+                harga: 110000,
+                stok: 120,
+                badge: 'Sporty Dry-Fit'
+            },
+            {
+                id: 4,
+                kode: 'WRK-001',
+                nama: 'Wearpack Praktik Jurusan TKJ / TKRO',
+                kategori: 'Wearpack Praktik',
+                deskripsi: 'Bahan drill tebal tahan percikan oli & panas, dilengkapi garis scotlite reflektif keselamatan kerja.',
+                harga: 165000,
+                stok: 45,
+                badge: 'Standar Bengkel'
+            },
+            {
+                id: 5,
+                kode: 'BTI-001',
+                nama: 'Baju Batik Khas SMKN 1 Idi',
+                kategori: 'Seragam Sekolah',
+                deskripsi: 'Motif batik khas identitas sekolah berbahan katun primisima lembut, adem dipakai harian.',
+                harga: 115000,
+                stok: 75,
+                badge: 'Khas SMKN 1 Idi'
+            }
+        ];
+
+        // Format Rupiah Helper
+        function formatRupiah(angka) {
+            return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        // Show Toast Notification
+        function showToast(msg, icon = 'fa-circle-check') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast_msg').textContent = msg;
+            document.getElementById('toast_icon').className = `fa-solid ${icon} text-indigo-600 text-base`;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-4');
+            }, 10);
+            setTimeout(() => {
+                toast.classList.add('translate-y-4');
+                setTimeout(() => toast.classList.add('hidden'), 300);
+            }, 3000);
+        }
+
+        // Simpan & Ambil Pesanan di LocalStorage
+        function getPesananStorage() {
+            try {
+                const data = localStorage.getItem('konveksi_orders');
+                return data ? JSON.parse(data) : [
+                    {
+                        kode_pesanan: 'INV-20261024-89A1',
+                        nama_pemesan: 'Muhammad Rizki',
+                        nis_kelas: 'X TKJ 1',
+                        no_hp: '081234567890',
+                        nama_produk: 'Seragam Putih Abu-Abu (Lengkap Bordir)',
+                        ukuran: 'L',
+                        jumlah: 2,
+                        total_harga: 250000,
+                        status_pesanan: 'Diproses / Dijahit',
+                        tanggal: '24/10/2026'
+                    },
+                    {
+                        kode_pesanan: 'INV-20261023-72F4',
+                        nama_pemesan: 'Siti Nurhaliza',
+                        nis_kelas: 'XI Multimedia',
+                        no_hp: '085298765432',
+                        nama_produk: 'Setelan Kaos & Celana Training Olahraga',
+                        ukuran: 'M',
+                        jumlah: 1,
+                        total_harga: 110000,
+                        status_pesanan: 'Siap Diambil',
+                        tanggal: '23/10/2026'
+                    }
+                ];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function savePesananStorage(list) {
+            localStorage.setItem('konveksi_orders', JSON.stringify(list));
+        }
+
+        // Render Katalog Produk
+        function renderKatalog(kategori = 'semua') {
+            const grid = document.getElementById('grid-produk');
+            const selectProduk = document.getElementById('select_produk');
+            grid.innerHTML = '';
+            selectProduk.innerHTML = '<option value="">-- Pilih Seragam atau Pakaian --</option>';
+
+            const filtered = kategori === 'semua' 
+                ? PRODUK_DATA 
+                : PRODUK_DATA.filter(p => p.kategori === kategori);
+
+            // Populate Dropdown
+            PRODUK_DATA.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p.id;
+                opt.textContent = `${p.nama} (${formatRupiah(p.harga)})`;
+                selectProduk.appendChild(opt);
+            });
+
+            // Populate Cards with Rounded-2xl, Soft Shadows, and Translucent Hover Buttons
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white/90 backdrop-blur-sm rounded-3xl border border-slate-200/80 shadow-soft hover:shadow-soft-lg hover:-translate-y-1.5 transition-all duration-300 p-6 flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-3.5">
+                            <span class="text-[11px] font-bold px-3 py-1 rounded-full bg-indigo-50/90 text-indigo-700 border border-indigo-200/70 shadow-xs">
+                                ${p.kategori}
+                            </span>
+                            <span class="text-[11px] font-mono font-medium text-slate-400">${p.kode}</span>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-base mb-2 group-hover:text-indigo-600 transition-colors leading-snug">${p.nama}</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-5 font-normal">${p.deskripsi}</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Harga Resmi</p>
+                                <p class="text-lg font-black text-indigo-700">${formatRupiah(p.harga)}</p>
+                            </div>
+                            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-xl border border-emerald-200/80">
+                                Stok: ${p.stok} pcs
+                            </span>
+                        </div>
+                        <button onclick="pilihProduk(${p.id})" class="w-full bg-slate-900/90 hover:bg-indigo-600 active:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-2xl text-xs transition-all duration-200 flex items-center justify-center gap-2 shadow-xs group-hover:shadow-md">
+                            <i class="fa-solid fa-cart-plus text-xs"></i>
+                            <span>Pilih Seragam Ini</span>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Kategori
+        function filterKategori(kat) {
+            document.querySelectorAll('#filter-buttons .cat-btn').forEach(b => {
+                b.className = "cat-btn bg-slate-100/80 hover:bg-slate-200/80 active:bg-slate-300 text-slate-700 px-4.5 py-2.5 rounded-xl border border-slate-200/80 transition-all duration-200";
+            });
+            event.target.className = "cat-btn active bg-indigo-600 hover:bg-indigo-700 text-white px-4.5 py-2.5 rounded-xl transition-all duration-200 shadow-md shadow-indigo-600/20";
+            renderKatalog(kat);
+        }
+
+        // Saat tombol "Pilih Seragam Ini" diklik
+        function pilihProduk(id) {
+            const select = document.getElementById('select_produk');
+            select.value = id;
+            hitungTotal();
+            const el = document.getElementById('pesan');
+            el.scrollIntoView({ behavior: 'smooth' });
+            showToast('Produk seragam telah dipilih ke formulir');
+        }
+
+        // Hitung Total Biaya
+        function hitungTotal() {
+            const pId = parseInt(document.getElementById('select_produk').value);
+            const qty = parseInt(document.getElementById('input_jumlah').value) || 1;
+            const produk = PRODUK_DATA.find(p => p.id === pId);
+            const total = produk ? produk.harga * qty : 0;
+            document.getElementById('label_total_biaya').textContent = formatRupiah(total);
+        }
+
+        // Handle Submit Pesanan Baru
+        let kodeTerakhir = '';
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama_pemesan').value.trim();
+            const kelas = document.getElementById('nis_kelas').value.trim();
+            const hp = document.getElementById('no_hp').value.trim();
+            const pId = parseInt(document.getElementById('select_produk').value);
+            const ukuran = document.getElementById('select_ukuran').value;
+            const qty = parseInt(document.getElementById('input_jumlah').value);
+            const catatan = document.getElementById('input_catatan').value.trim();
+
+            const produk = PRODUK_DATA.find(p => p.id === pId);
+            if (!produk) {
+                alert('Silakan pilih produk seragam terlebih dahulu.');
+                return;
+            }
+
+            // Generate Kode Invoice Acak
+            const randomCode = Math.random().toString(36).substring(2, 6).toUpperCase();
+            const now = new Date();
+            const dateStr = now.getFullYear().toString() + String(now.getMonth()+1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
+            const kode = `INV-${dateStr}-${randomCode}`;
+            kodeTerakhir = kode;
+
+            const orderBaru = {
+                kode_pesanan: kode,
+                nama_pemesan: nama,
+                nis_kelas: kelas,
+                no_hp: hp,
+                nama_produk: produk.nama,
+                ukuran: ukuran,
+                jumlah: qty,
+                total_harga: produk.harga * qty,
+                catatan: catatan,
+                status_pesanan: 'Menunggu Verifikasi',
+                tanggal: `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`
+            };
+
+            const orders = getPesananStorage();
+            orders.unshift(orderBaru);
+            savePesananStorage(orders);
+
+            // Update Modal Sukses
+            document.getElementById('sukses_kode').textContent = kode;
+            document.getElementById('sukses_nama').textContent = nama + ' (' + kelas + ')';
+            document.getElementById('sukses_produk').textContent = produk.nama;
+            document.getElementById('sukses_qty').textContent = `${ukuran} (${qty} pcs)`;
+            document.getElementById('sukses_total').textContent = formatRupiah(produk.harga * qty);
+
+            document.getElementById('modalSukses').classList.remove('hidden');
+
+            // Reset Form
+            document.getElementById('orderForm').reset();
+            hitungTotal();
+        }
+
+        function tutupModalSukses() {
+            document.getElementById('modalSukses').classList.add('hidden');
+        }
+
+        function salinKodePesanan() {
+            if (kodeTerakhir) {
+                navigator.clipboard.writeText(kodeTerakhir);
+                showToast('Kode pesanan ' + kodeTerakhir + ' berhasil disalin!');
+            }
+        }
+
+        // Cari Pesanan
+        function handleCariPesanan(e) {
+            e.preventDefault();
+            const q = document.getElementById('input_cari').value.trim().toLowerCase();
+            const box = document.getElementById('hasil_pencarian_box');
+            const orders = getPesananStorage();
+
+            const found = orders.filter(o => 
+                o.kode_pesanan.toLowerCase().includes(q) || 
+                o.no_hp.toLowerCase().includes(q)
+            );
+
+            box.classList.remove('hidden');
+            if (found.length === 0) {
+                box.innerHTML = `
+                    <div class="bg-red-50/90 border border-red-200/80 text-red-700 text-xs p-5 rounded-2xl text-center space-y-1">
+                        <i class="fa-solid fa-triangle-exclamation text-lg text-red-500 mb-1 block"></i>
+                        <p class="font-bold">Pesanan tidak ditemukan</p>
+                        <p class="text-slate-500">Tidak ada riwayat untuk kode / nomor HP: <strong class="text-red-700">${q}</strong></p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '<div class="space-y-4">';
+            found.forEach(item => {
+                let badgeClass = 'bg-amber-100/90 text-amber-800 border-amber-300/80';
+                let progressPercent = '25%';
+                if (item.status_pesanan.includes('Dijahit') || item.status_pesanan.includes('Diproses')) {
+                    badgeClass = 'bg-blue-100/90 text-blue-800 border-blue-300/80';
+                    progressPercent = '65%';
+                } else if (item.status_pesanan.includes('Siap')) {
+                    badgeClass = 'bg-emerald-100/90 text-emerald-800 border-emerald-300/80';
+                    progressPercent = '100%';
+                }
+
+                html += `
+                    <div class="bg-slate-50/90 border border-slate-200/80 rounded-2xl p-5 text-xs space-y-3 shadow-xs">
+                        <div class="flex items-center justify-between border-b border-slate-200/80 pb-3">
+                            <span class="font-mono font-black text-indigo-700 text-xs bg-indigo-50 px-2 py-0.5 rounded-lg border border-indigo-200/80">${item.kode_pesanan}</span>
+                            <span class="text-[11px] font-bold px-3 py-1 rounded-full border ${badgeClass}">
+                                ${item.status_pesanan}
+                            </span>
+                        </div>
+
+                        <!-- Timeline Progress Bar -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-[10px] text-slate-400 font-semibold">
+                                <span>Progres Pengerjaan</span>
+                                <span class="text-indigo-600">${progressPercent}</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 rounded-full transition-all duration-500" style="width: ${progressPercent}"></div>
+                            </div>
+                        </div>
+
+                        <p class="font-extrabold text-slate-900 text-sm">${item.nama_produk}</p>
+                        <div class="grid grid-cols-2 gap-2 text-slate-600 text-[11px] bg-white p-3 rounded-xl border border-slate-100">
+                            <div>Pemesan: <strong class="text-slate-800">${item.nama_pemesan}</strong> (${item.nis_kelas})</div>
+                            <div>Ukuran: <strong class="text-slate-800">${item.ukuran}</strong> (${item.jumlah} pcs)</div>
+                            <div>Tanggal: <strong class="text-slate-800">${item.tanggal}</strong></div>
+                            <div>Total: <strong class="text-indigo-600 font-bold">${formatRupiah(item.total_harga)}</strong></div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            box.innerHTML = html;
+        }
+
+        // Modal Admin Login
+        function bukaModalAdmin() {
+            document.getElementById('modalAdmin').classList.remove('hidden');
+        }
+        function tutupModalAdmin() {
+            document.getElementById('modalAdmin').classList.add('hidden');
+        }
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('admin_user').value;
+            const p = document.getElementById('admin_pass').value;
+            if (u === 'admin' && p === 'admin9671') {
+                tutupModalAdmin();
+                bukaModalDashboard();
+            } else {
+                alert('Username atau password admin salah!');
+            }
+        }
+
+        // Modal Admin Dashboard
+        function bukaModalDashboard() {
+            const tbody = document.getElementById('admin_orders_tbody');
+            const orders = getPesananStorage();
+            tbody.innerHTML = '';
+
+            orders.forEach((ord, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors";
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-mono font-bold text-indigo-700">${ord.kode_pesanan}</td>
+                    <td class="py-3 px-4">
+                        <div class="font-bold text-slate-800">${ord.nama_pemesan}</div>
+                        <div class="text-[10px] text-slate-400">${ord.nis_kelas} | ${ord.no_hp}</div>
+                    </td>
+                    <td class="py-3 px-4">
+                        <div>${ord.nama_produk}</div>
+                        <div class="text-[10px] text-slate-400">Size: ${ord.ukuran} | ${ord.jumlah} pcs</div>
+                    </td>
+                    <td class="py-3 px-4 font-bold text-indigo-600">${formatRupiah(ord.total_harga)}</td>
+                    <td class="py-3 px-4 font-semibold text-slate-700">${ord.status_pesanan}</td>
+                    <td class="py-3 px-4 text-center">
+                        <div class="flex items-center justify-center gap-1.5">
+                            <button onclick="updateStatusPesanan(${index}, 'Diproses / Dijahit')" class="px-2 py-1 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg text-[10px] font-bold border border-blue-200 transition">Jahit</button>
+                            <button onclick="updateStatusPesanan(${index}, 'Siap Diambil')" class="px-2 py-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 rounded-lg text-[10px] font-bold border border-emerald-200 transition">Selesai</button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.getElementById('modalDashboard').classList.remove('hidden');
+        }
+
+        function updateStatusPesanan(index, status) {
+            const orders = getPesananStorage();
+            if (orders[index]) {
+                orders[index].status_pesanan = status;
+                savePesananStorage(orders);
+                bukaModalDashboard();
+                showToast(`Status pesanan berhasil diubah menjadi: ${status}`);
+            }
+        }
+
+        function tutupModalDashboard() {
+            document.getElementById('modalDashboard').classList.add('hidden');
+        }
+
+        // Inisialisasi awal saat halaman dibuka
+        document.addEventListener('DOMContentLoaded', () => {
+            renderKatalog();
+            hitungTotal();
+        });
+    </script>
+</body>
+</html>

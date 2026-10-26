@@ -1,0 +1,21 @@
+# Node dependencies & build artifacts
+konveksi-app/node_modules/
+konveksi-app/dist/
+konveksi-app/dist-ssr/
+konveksi-app/.vercel/
+
+# Environment files
+konveksi-app/.env.local
+konveksi-app/.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
